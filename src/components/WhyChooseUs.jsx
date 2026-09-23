@@ -44,15 +44,15 @@ const WhyChooseUs = () => {
 
   return (
     <section id="why-us" className="py-20 md:py-28 bg-stone-900 text-white relative overflow-hidden">
-      {/* Decorative Ambient Radial Glow */}
+      {/* Background Radial Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-amber/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Heading & Description */}
-          <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-32">
-            <div className="inline-block px-3.5 py-1 rounded-full bg-stone-800 border border-stone-700 text-amber-400 text-xs font-bold tracking-widest uppercase">
+          {/* Left Column: Heading & Large Architectural Showcase Image */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="inline-block px-3.5 py-1.5 rounded-full bg-stone-800 border border-stone-700 text-amber-400 text-xs font-extrabold tracking-widest uppercase">
               OUR COMMITMENT
             </div>
 
@@ -65,15 +65,18 @@ const WhyChooseUs = () => {
               We focus on building strong relationships alongside durable structures. Our approach combines craftsmanship, clarity, and dependable execution.
             </p>
 
-            <div className="pt-4 border-t border-stone-800 space-y-3 text-sm text-stone-400">
-              <p className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-                <span>Focus on long-term structural integrity</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-                <span>Transparent and straightforward process</span>
-              </p>
+            {/* Showcase Image Card */}
+            <div className="relative rounded-xl overflow-hidden border border-stone-700 shadow-2xl pt-2">
+              <img
+                src="images/hero.jpg"
+                alt="RB Construction quality project site"
+                className="w-full h-56 sm:h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-4 left-4 right-4 text-xs font-bold text-stone-200">
+                <span className="text-amber-400 font-extrabold uppercase tracking-wider block mb-0.5">STANDARDS</span>
+                Engineered with high material integrity and structural precision.
+              </div>
             </div>
           </div>
 
@@ -84,17 +87,19 @@ const WhyChooseUs = () => {
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-xl bg-stone-800/80 border border-stone-700/80 hover:border-amber-500/50 hover:bg-stone-800 transition-all duration-300 group shadow-sm"
+                  className="p-6 rounded-xl bg-stone-800/80 border border-stone-700/80 hover:border-amber-500/50 hover:bg-stone-800 transition-all duration-300 group shadow-sm flex flex-col justify-between"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-stone-900 border border-stone-700 text-amber-400 flex items-center justify-center mb-5 group-hover:bg-amber-400 group-hover:text-stone-900 transition-colors duration-300">
-                    <IconComp className="w-6 h-6" />
+                  <div>
+                    <div className="w-12 h-12 rounded-lg bg-stone-900 border border-stone-700 text-amber-400 flex items-center justify-center mb-4 group-hover:bg-amber-400 group-hover:text-stone-900 transition-colors duration-300">
+                      <IconComp className="w-6 h-6 stroke-[2]" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-stone-400 leading-relaxed font-normal">
+                      {item.description}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-stone-400 leading-relaxed">
-                    {item.description}
-                  </p>
                 </div>
               );
             })}
